@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "958637047127",
+    "project_id": "s-travel-dwmlrw",
+    "storage_bucket": "s-travel-dwmlrw.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:958637047127:android:f3f0a5962e5438b0a05212",
+        "android_client_info": {
+          "package_name": "com.flutterflow.stravel"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "958637047127-jc32ot0ovo5l9i63754p0v8g2aed1ol1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.flutterflow.stravel",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "958637047127-k49l38ps7j0f6alulct4v19nr3j5g6ga.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6HMLyNmgN3FdcWOXEJRX8duQ9dMQFln0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "958637047127-k49l38ps7j0f6alulct4v19nr3j5g6ga.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "958637047127-401mm2fvhr6g3g6nfrg1omlgsrj43urq.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.flutterflow.stravel"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

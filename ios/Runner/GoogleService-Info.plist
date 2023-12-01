@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>958637047127-401mm2fvhr6g3g6nfrg1omlgsrj43urq.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.958637047127-401mm2fvhr6g3g6nfrg1omlgsrj43urq</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>958637047127-jc32ot0ovo5l9i63754p0v8g2aed1ol1.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAneqlDoVE1BiKIGrH4XaxhQK1tYs2QklM</string>
+	<key>GCM_SENDER_ID</key>
+	<string>958637047127</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.flutterflow.stravel</string>
+	<key>PROJECT_ID</key>
+	<string>s-travel-dwmlrw</string>
+	<key>STORAGE_BUCKET</key>
+	<string>s-travel-dwmlrw.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:958637047127:ios:520e6ac5c7a5092ca05212</string>
+</dict>
+</plist>
