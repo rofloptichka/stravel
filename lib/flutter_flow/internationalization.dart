@@ -201,8 +201,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'a42jzwb0': {
       'ru': 'Туры и гиды',
-      'en': '',
-      'kk': '',
+      'en': 'Tours and guides',
+      'kk': 'Экскурсиялар мен гидтер',
     },
     'uprslwex': {
       'ru': 'Чат',
@@ -389,6 +389,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Booking my tours',
       'kk': 'Турларымды брондау',
     },
+    'xjfcx4w0': {
+      'ru': 'Сгенерировать пост для соц. сетей',
+      'en': '',
+      'kk': '',
+    },
     'p65qj9dy': {
       'ru': 'Хочешь стать гидом?',
       'en': 'Do you want to become a guide?',
@@ -396,13 +401,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '1wkp5wup': {
       'ru': 'Добавить Отзыв',
-      'en': '',
-      'kk': '',
+      'en': 'Add a review',
+      'kk': 'Пікір қосу',
     },
     '3cf876eu': {
       'ru': 'SOS',
-      'en': '',
-      'kk': '',
+      'en': 'SOS',
+      'kk': 'SOS',
     },
     'pglw0zv3': {
       'ru': 'Профиль',
@@ -1097,8 +1102,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '861v66oj': {
       'ru': ' Астана',
-      'en': '',
-      'kk': '',
+      'en': 'Astana',
+      'kk': 'Астана',
     },
     'gupyg6do': {
       'ru': 'Город',
@@ -1292,8 +1297,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '4tkf3tyg': {
       'ru': 'Концерт',
-      'en': 'Concerts',
-      'kk': 'Концерттер',
+      'en': 'Concert',
+      'kk': 'Концерт',
     },
     '6q4559o6': {
       'ru': 'Стендапы',
@@ -1482,13 +1487,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   {
     '7x3u2772': {
       'ru': 'Найти туров и гидов',
-      'en': 'Add Tours or Guides',
-      'kk': 'Турларды немесе гидтерді қосыңыз',
+      'en': 'Find tours and guides',
+      'kk': 'Экскурсиялар мен гидтерді табыңыз',
     },
     'j529zhu7': {
       'ru': 'Найти туры..',
-      'en': 'Search Tours...',
-      'kk': 'Турларды іздеу...',
+      'en': 'Find tours..',
+      'kk': 'Турларды табыңыз..',
     },
     'b6su1taq': {
       'ru': 'Туры',
@@ -1683,22 +1688,22 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'fn9hw688': {
       'ru': 'Как бы вы это оценили?',
       'en': 'How would you rate it?',
-      'kk': 'Сіз оны қалай бағалар едіңіз?',
+      'kk': 'Оған қандай баға берер едіңіз?',
+    },
+    'ee7ooep2': {
+      'ru': 'Добавить',
+      'en': 'Add',
+      'kk': 'қосу',
+    },
+    'z5kbbwov': {
+      'ru': 'Сгенерировать',
+      'en': 'Generate',
+      'kk': 'Жасау',
     },
     'vhvh3bgy': {
       'ru': 'Пожалуйста, оставьте описание места...',
       'en': 'Please leave a description of the place...',
       'kk': 'Орынның сипаттамасын қалдырыңыз...',
-    },
-    'ee7ooep2': {
-      'ru': 'Добавить',
-      'en': 'Add a review',
-      'kk': 'Пікір қосу',
-    },
-    'z5kbbwov': {
-      'ru': 'Сгенерировать',
-      'en': '',
-      'kk': '',
     },
   },
   // changeMainPhoto
@@ -1807,7 +1812,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en':
           'Management Approval:\n1. Criteria: According to the legislation of Kazakhstan, a license to act as a guide is not required, but professional training is required, confirmed by relevant documents and the organizational and legal form of a business and tourism entity.\nRequired documents:\n1) Completed application\n2) Completed guide map.\n3) Copy of ID\n4) Copies of certificates, guide certificates, diplomas and diplomas.\n5) Two 3x4 photographs.\n6) Payment of an annual membership fee in the amount of X tenge.\n7) Accreditation by KTA (Kazakhstan Tourist Association)\n2. Track record – past work experience.\n3. Interview – an interview to better understand the applicant as a person.',
       'kk':
-          'Басқаруды бекіту:\n1. Критерийлер: Қазақстан заңнамасына сәйкес гид қызметін атқару үшін лицензия талап етілмейді, бірақ кәсіпкерлік және туризм субъектісінің тиісті құжаттармен және ұйымдық-құқықтық нысанымен расталған кәсіптік даярлық қажет.\nҚажетті құжаттар:\n1) Аяқталған өтініш\n2) Аяқталған нұсқаулық картасы.\n3) жеке басын куәландыратын құжаттың көшірмесі\n4) Сертификаттардың, гид сертификаттарының, дипломдар мен дипломдардың көшірмелері.\n5) 3х4 екі фотосурет.\n6) Х теңге мөлшерінде жыл сайынғы мүшелік жарнаны төлеу.\n7) ҚТА (Қазақстан туристік қауымдастығы) аккредитациясы\n2. Еңбек өтілі – өткен жұмыс тәжірибесі.\n3. Сұхбат – өтініш берушіні тұлға ретінде жақсырақ түсіну үшін сұхбат.',
+          'Басқаруды бекіту:\n1. Критерийлер: Қазақстан заңнамасына сәйкес гид қызметін атқару үшін лицензия талап етілмейді, бірақ кәсіпкерлік және туризм субъектісінің тиісті құжаттармен және ұйымдық-құқықтық нысанымен расталған кәсіптік даярлық қажет.\nҚажетті құжаттар:\n1) Аяқталған өтініш\n2) Аяқталған нұсқаулық картасы.\n3) жеке басын куәландыратын құжаттың көшірмесі\n4) Сертификаттардың, гид сертификаттарының, дипломдар мен дипломдардың көшірмелері.\n5) 3х4 өлшемді екі фотосурет.\n6) Х теңге мөлшерінде жыл сайынғы мүшелік жарнаны төлеу.\n7) ҚТА (Қазақстан туристік қауымдастығы) аккредитациясы\n2. Еңбек өтілі – өткен жұмыс тәжірибесі.\n3. Сұхбат – өтініш берушіні тұлға ретінде жақсырақ түсіну үшін сұхбат.',
     },
     'mcyu4ka5': {
       'ru': 'Отмена',
@@ -1829,8 +1834,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '15ktb2h0': {
       'ru': 'Назад',
-      'en': 'Return',
-      'kk': 'Қайту',
+      'en': 'Back',
+      'kk': 'Артқа',
     },
   },
   // SOSNumbers
@@ -1862,8 +1867,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'rr2qr3q8': {
       'ru': 'Отправить СМС с местоположением',
-      'en': '',
-      'kk': '',
+      'en': 'Send SMS with location',
+      'kk': 'Орналасқан жері бар SMS жіберіңіз',
     },
   },
   // bottomLocationCopy

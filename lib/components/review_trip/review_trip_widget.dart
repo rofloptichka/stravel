@@ -163,52 +163,6 @@ class _ReviewTripWidgetState extends State<ReviewTripWidget> {
                     glowColor: FlutterFlowTheme.of(context).primary,
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
-                  child: TextFormField(
-                    controller: _model.textController,
-                    focusNode: _model.textFieldFocusNode,
-                    obscureText: false,
-                    decoration: InputDecoration(
-                      hintText: FFLocalizations.of(context).getText(
-                        'vhvh3bgy' /* Пожалуйста, оставьте описание ... */,
-                      ),
-                      hintStyle: FlutterFlowTheme.of(context).bodyMedium,
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: FlutterFlowTheme.of(context).lineGray,
-                          width: 2.0,
-                        ),
-                        borderRadius: BorderRadius.circular(8.0),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(
-                          color: Color(0x00000000),
-                          width: 2.0,
-                        ),
-                        borderRadius: BorderRadius.circular(8.0),
-                      ),
-                      errorBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(
-                          color: Color(0x00000000),
-                          width: 2.0,
-                        ),
-                        borderRadius: BorderRadius.circular(8.0),
-                      ),
-                      focusedErrorBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(
-                          color: Color(0x00000000),
-                          width: 2.0,
-                        ),
-                        borderRadius: BorderRadius.circular(8.0),
-                      ),
-                    ),
-                    style: FlutterFlowTheme.of(context).bodySmall,
-                    maxLines: 4,
-                    validator:
-                        _model.textControllerValidator.asValidator(context),
-                  ),
-                ),
                 Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
@@ -394,6 +348,52 @@ class _ReviewTripWidgetState extends State<ReviewTripWidget> {
                       ),
                     ),
                   ],
+                ),
+                Padding(
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                  child: TextFormField(
+                    controller: _model.textController,
+                    focusNode: _model.textFieldFocusNode,
+                    obscureText: false,
+                    decoration: InputDecoration(
+                      hintText: FFLocalizations.of(context).getText(
+                        'vhvh3bgy' /* Пожалуйста, оставьте описание ... */,
+                      ),
+                      hintStyle: FlutterFlowTheme.of(context).bodyMedium,
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: FlutterFlowTheme.of(context).lineGray,
+                          width: 2.0,
+                        ),
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(
+                          color: Color(0x00000000),
+                          width: 2.0,
+                        ),
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                      errorBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(
+                          color: Color(0x00000000),
+                          width: 2.0,
+                        ),
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                      focusedErrorBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(
+                          color: Color(0x00000000),
+                          width: 2.0,
+                        ),
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                    ),
+                    style: FlutterFlowTheme.of(context).bodySmall,
+                    maxLines: 4,
+                    validator:
+                        _model.textControllerValidator.asValidator(context),
+                  ),
                 ),
               ],
             ),

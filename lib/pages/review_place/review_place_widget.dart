@@ -370,9 +370,17 @@ class _ReviewPlaceWidgetState extends State<ReviewPlaceWidget> {
                                                     padding:
                                                         MediaQuery.viewInsetsOf(
                                                             context),
-                                                    child: const SizedBox(
-                                                      height: 700.0,
-                                                      child: ReviewTripWidget(),
+                                                    child: SizedBox(
+                                                      height: MediaQuery.sizeOf(
+                                                                  context)
+                                                              .height *
+                                                          0.9,
+                                                      child: ReviewTripWidget(
+                                                        propertyReference:
+                                                            columnPropertiesRecord,
+                                                        tripDetails:
+                                                            listViewTripsRecord,
+                                                      ),
                                                     ),
                                                   );
                                                 },
