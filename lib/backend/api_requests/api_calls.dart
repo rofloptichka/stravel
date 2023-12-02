@@ -1698,6 +1698,97 @@ class GetMessageFileCall {
 
 /// End OpenAI AP Group Code
 
+class EatCall {
+  static Future<ApiCallResponse> call({
+    String? location = '',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'eat',
+      apiUrl: 'https://maps.googleapis.com/maps/api/place/nearbysearch/json',
+      callType: ApiCallType.GET,
+      headers: {},
+      params: {
+        'key': "AIzaSyAbNHk3F3BbU68ODl8Vr63TyzHEk2qt3uI",
+        'radius': "3000",
+        'type': "cafe|restaurant",
+        'location': location,
+      },
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+    );
+  }
+
+  static dynamic naming(dynamic response) => getJsonField(
+        response,
+        r'''$.results[:].name''',
+        true,
+      );
+  static dynamic lattlng(dynamic response) => getJsonField(
+        response,
+        r'''$.results[:].geometry.location''',
+        true,
+      );
+  static dynamic long(dynamic response) => getJsonField(
+        response,
+        r'''$.results[:].geometry.location.lng''',
+        true,
+      );
+  static dynamic latt(dynamic response) => getJsonField(
+        response,
+        r'''$.results[:].geometry.location.lat''',
+        true,
+      );
+  static dynamic phot(dynamic response) => getJsonField(
+        response,
+        r'''$.results[:].photos''',
+        true,
+      );
+  static dynamic rating(dynamic response) => getJsonField(
+        response,
+        r'''$.results[:].rating''',
+        true,
+      );
+  static dynamic numratings(dynamic response) => getJsonField(
+        response,
+        r'''$.results[:].user_ratings_total''',
+        true,
+      );
+  static dynamic adr(dynamic response) => getJsonField(
+        response,
+        r'''$.results[:].vicinity''',
+        true,
+      );
+  static dynamic cost(dynamic response) => getJsonField(
+        response,
+        r'''$.results[:].price_level''',
+        true,
+      );
+}
+
+class LolCall {
+  static Future<ApiCallResponse> call({
+    String? prompt = 'Seneca',
+    String? lang = 'English',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'Lol',
+      apiUrl: 'https://workapipls.onrender.com/',
+      callType: ApiCallType.GET,
+      headers: {},
+      params: {
+        'prompt': prompt,
+        'lang': lang,
+      },
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+    );
+  }
+}
+
 class ApiPagingParams {
   int nextPageNumber = 0;
   int numItems = 0;

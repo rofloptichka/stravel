@@ -1,3 +1,5 @@
+import '/auth/firebase_auth/auth_util.dart';
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_checkbox_group.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
@@ -8,6 +10,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -142,12 +145,53 @@ class _TestWidgetState extends State<TestWidget> with TickerProviderStateMixin {
         ),
       ],
     ),
+    'textOnPageLoadAnimation7': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: const Offset(0.0, 50.0),
+          end: const Offset(0.0, 0.0),
+        ),
+      ],
+    ),
+    'textOnPageLoadAnimation8': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: const Offset(0.0, 50.0),
+          end: const Offset(0.0, 0.0),
+        ),
+      ],
+    ),
   };
 
   @override
   void initState() {
     super.initState();
     _model = createModel(context, () => TestModel());
+
+    _model.textController ??= TextEditingController();
+    _model.textFieldFocusNode ??= FocusNode();
 
     setupAnimations(
       animationsMap.values.where((anim) =>
@@ -187,13 +231,16 @@ class _TestWidgetState extends State<TestWidget> with TickerProviderStateMixin {
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         appBar: AppBar(
-          backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+          backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
           automaticallyImplyLeading: false,
           title: Text(
             FFLocalizations.of(context).getText(
-              'p1s1vs9c' /* Пройдите тест */,
+              '90lmui2h' /* Пройдите тест */,
             ),
-            style: FlutterFlowTheme.of(context).displaySmall,
+            style: FlutterFlowTheme.of(context).displaySmall.override(
+                  fontFamily: 'Urbanist',
+                  fontWeight: FontWeight.w500,
+                ),
           ),
           actions: [
             Padding(
@@ -203,14 +250,14 @@ class _TestWidgetState extends State<TestWidget> with TickerProviderStateMixin {
                 borderRadius: 30.0,
                 borderWidth: 1.0,
                 buttonSize: 50.0,
-                fillColor: FlutterFlowTheme.of(context).primaryBackground,
+                fillColor: FlutterFlowTheme.of(context).secondaryBackground,
                 icon: Icon(
                   Icons.close_rounded,
                   color: FlutterFlowTheme.of(context).secondaryText,
                   size: 30.0,
                 ),
-                onPressed: () {
-                  print('IconButton pressed ...');
+                onPressed: () async {
+                  context.safePop();
                 },
               ),
             ),
@@ -247,7 +294,7 @@ class _TestWidgetState extends State<TestWidget> with TickerProviderStateMixin {
                                     16.0, 16.0, 0.0, 0.0),
                                 child: Text(
                                   FFLocalizations.of(context).getText(
-                                    '6ujii63h' /* Где вы планируете отдыхать? */,
+                                    '8p26qz5y' /* Где вы планируете отдыхать? */,
                                   ),
                                   style:
                                       FlutterFlowTheme.of(context).displaySmall,
@@ -269,19 +316,41 @@ class _TestWidgetState extends State<TestWidget> with TickerProviderStateMixin {
                                             FormFieldController<String>(null),
                                         options: [
                                           FFLocalizations.of(context).getText(
-                                            'uxrn44dt' /* Абайская область */,
+                                            '1z4i9ipf' /* Алматы */,
+                                          ),
+                                          FFLocalizations.of(context).getText(
+                                            'mckehslo' /* Актау */,
+                                          ),
+                                          FFLocalizations.of(context).getText(
+                                            '861v66oj' /*  Астана */,
                                           )
                                         ],
                                         onChanged: (val) => setState(
                                             () => _model.dropDownValue1 = val),
                                         width: 300.0,
                                         height: 50.0,
+                                        searchHintTextStyle:
+                                            FlutterFlowTheme.of(context)
+                                                .labelMedium,
                                         textStyle: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Urbanist',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryText,
+                                            ),
                                         hintText:
                                             FFLocalizations.of(context).getText(
-                                          'k0y2yw9t' /* Область */,
+                                          'gupyg6do' /* Город */,
                                         ),
+                                        searchHintText:
+                                            FFLocalizations.of(context).getText(
+                                          'sb6mz4b1' /* Найти город.. */,
+                                        ),
+                                        searchCursorColor:
+                                            FlutterFlowTheme.of(context)
+                                                .primaryText,
                                         icon: Icon(
                                           Icons.keyboard_arrow_down_rounded,
                                           color: FlutterFlowTheme.of(context)
@@ -299,7 +368,7 @@ class _TestWidgetState extends State<TestWidget> with TickerProviderStateMixin {
                                         margin: const EdgeInsetsDirectional.fromSTEB(
                                             16.0, 4.0, 16.0, 4.0),
                                         hidesUnderline: true,
-                                        isSearchable: false,
+                                        isSearchable: true,
                                         isMultiSelect: false,
                                       ),
                                     ),
@@ -317,7 +386,7 @@ class _TestWidgetState extends State<TestWidget> with TickerProviderStateMixin {
                                     16.0, 16.0, 16.0, 0.0),
                                 child: Text(
                                   FFLocalizations.of(context).getText(
-                                    '1gan6dvq' /* Где вы планируете жить во врем... */,
+                                    'ur439r7u' /* Где вы планируете жить во врем... */,
                                   ),
                                   textAlign: TextAlign.center,
                                   style:
@@ -326,7 +395,7 @@ class _TestWidgetState extends State<TestWidget> with TickerProviderStateMixin {
                                     animationsMap['textOnPageLoadAnimation2']!),
                               ),
                               Form(
-                                key: _model.formKey1,
+                                key: _model.formKey3,
                                 autovalidateMode: AutovalidateMode.disabled,
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
@@ -340,16 +409,16 @@ class _TestWidgetState extends State<TestWidget> with TickerProviderStateMixin {
                                             FormFieldController<String>(null),
                                         options: [
                                           FFLocalizations.of(context).getText(
-                                            'nclwd02n' /* Квартира */,
+                                            'pzwzeki3' /* Квартира */,
                                           ),
                                           FFLocalizations.of(context).getText(
-                                            'x0lb1hbf' /* Дом */,
+                                            'a5f5keup' /* Дом */,
                                           ),
                                           FFLocalizations.of(context).getText(
-                                            'e8hbnjw6' /* Отель */,
+                                            't5x09zql' /* Отель */,
                                           ),
                                           FFLocalizations.of(context).getText(
-                                            'pg6s51ax' /* Хостел */,
+                                            '37fu5313' /* Хостел */,
                                           )
                                         ],
                                         onChanged: (val) => setState(
@@ -360,7 +429,7 @@ class _TestWidgetState extends State<TestWidget> with TickerProviderStateMixin {
                                             .bodyMedium,
                                         hintText:
                                             FFLocalizations.of(context).getText(
-                                          'jc4m2dwn' /* Область */,
+                                          'rwkjnv4p' /* Вид жилья */,
                                         ),
                                         icon: Icon(
                                           Icons.keyboard_arrow_down_rounded,
@@ -392,83 +461,93 @@ class _TestWidgetState extends State<TestWidget> with TickerProviderStateMixin {
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 16.0, 16.0, 0.0),
-                                child: Text(
-                                  FFLocalizations.of(context).getText(
-                                    'uv0u50tg' /* Какой у вас бюджет на жилье? */,
-                                  ),
-                                  style:
-                                      FlutterFlowTheme.of(context).displaySmall,
-                                ).animateOnPageLoad(
-                                    animationsMap['textOnPageLoadAnimation3']!),
-                              ),
-                              Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 16.0, 0.0, 16.0),
-                                child: FlutterFlowDropDown<String>(
-                                  controller:
-                                      _model.dropDownValueController3 ??=
-                                          FormFieldController<String>(null),
-                                  options: [
+                              if (_model.dropDownValue1 !=
+                                  'У меня есть свое жилье')
+                                Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      16.0, 16.0, 16.0, 0.0),
+                                  child: Text(
                                     FFLocalizations.of(context).getText(
-                                      'zyx3g0nd' /* У меня есть свое жилье */,
+                                      'g33hlkcv' /* Какой у вас бюджет на жилье? */,
                                     ),
-                                    FFLocalizations.of(context).getText(
-                                      'npqtvv3e' /* До 50,000 тенге */,
-                                    ),
-                                    FFLocalizations.of(context).getText(
-                                      'g73d9zm0' /* 50-100,000 тенге */,
-                                    ),
-                                    FFLocalizations.of(context).getText(
-                                      '6xb6buam' /* 100-200,000 тенге */,
-                                    ),
-                                    FFLocalizations.of(context).getText(
-                                      'wufoztt7' /* 200-500,000 тенге */,
-                                    ),
-                                    FFLocalizations.of(context).getText(
-                                      'tv2azvcd' /* 500-1,000,000 тенге */,
-                                    ),
-                                    FFLocalizations.of(context).getText(
-                                      '6gqctha9' /* Более 1,000,000 тенге */,
-                                    )
-                                  ],
-                                  onChanged: (val) => setState(
-                                      () => _model.dropDownValue3 = val),
-                                  width: 300.0,
-                                  height: 50.0,
-                                  textStyle:
-                                      FlutterFlowTheme.of(context).bodyMedium,
-                                  hintText: FFLocalizations.of(context).getText(
-                                    'c5ppntaq' /* Выберите бюджет.. */,
-                                  ),
-                                  icon: Icon(
-                                    Icons.keyboard_arrow_down_rounded,
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryText,
-                                    size: 24.0,
-                                  ),
-                                  fillColor: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
-                                  elevation: 2.0,
-                                  borderColor:
-                                      FlutterFlowTheme.of(context).alternate,
-                                  borderWidth: 2.0,
-                                  borderRadius: 8.0,
-                                  margin: const EdgeInsetsDirectional.fromSTEB(
-                                      16.0, 4.0, 16.0, 4.0),
-                                  hidesUnderline: true,
-                                  isSearchable: false,
-                                  isMultiSelect: false,
+                                    style: FlutterFlowTheme.of(context)
+                                        .displaySmall,
+                                  ).animateOnPageLoad(animationsMap[
+                                      'textOnPageLoadAnimation3']!),
                                 ),
-                              ),
+                              if (_model.dropDownValue1 !=
+                                  'У меня есть свое жилье')
+                                Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 16.0, 0.0, 16.0),
+                                  child: FlutterFlowDropDown<int>(
+                                    controller:
+                                        _model.dropDownValueController3 ??=
+                                            FormFieldController<int>(null),
+                                    options: List<int>.from([
+                                      50000,
+                                      100000,
+                                      200000,
+                                      500000,
+                                      1000000,
+                                      10000000
+                                    ]),
+                                    optionLabels: [
+                                      FFLocalizations.of(context).getText(
+                                        '19dh1yah' /* До 50,000 тенге */,
+                                      ),
+                                      FFLocalizations.of(context).getText(
+                                        'fvere9cl' /* 50-100,000 тенге */,
+                                      ),
+                                      FFLocalizations.of(context).getText(
+                                        'sk0k6cq8' /* 100-200,000 тенге */,
+                                      ),
+                                      FFLocalizations.of(context).getText(
+                                        '1qkcukp8' /* 200-500,000 тенге */,
+                                      ),
+                                      FFLocalizations.of(context).getText(
+                                        'rnvhzywe' /* 500-1,000,000 тенге */,
+                                      ),
+                                      FFLocalizations.of(context).getText(
+                                        '0oyj1jx2' /* Более 1,000,000 тенге */,
+                                      )
+                                    ],
+                                    onChanged: (val) => setState(
+                                        () => _model.dropDownValue3 = val),
+                                    width: 300.0,
+                                    height: 50.0,
+                                    textStyle:
+                                        FlutterFlowTheme.of(context).bodyMedium,
+                                    hintText:
+                                        FFLocalizations.of(context).getText(
+                                      'z7c9w19n' /* Выберите бюджет.. */,
+                                    ),
+                                    icon: Icon(
+                                      Icons.keyboard_arrow_down_rounded,
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryText,
+                                      size: 24.0,
+                                    ),
+                                    fillColor: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    elevation: 2.0,
+                                    borderColor:
+                                        FlutterFlowTheme.of(context).alternate,
+                                    borderWidth: 2.0,
+                                    borderRadius: 8.0,
+                                    margin: const EdgeInsetsDirectional.fromSTEB(
+                                        16.0, 4.0, 16.0, 4.0),
+                                    hidesUnderline: true,
+                                    isSearchable: false,
+                                    isMultiSelect: false,
+                                  ),
+                                ),
                               Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
                                     16.0, 16.0, 16.0, 0.0),
                                 child: Text(
                                   FFLocalizations.of(context).getText(
-                                    'qropt27y' /* Какой вы хотели бы средний чек... */,
+                                    'dui0alpl' /* Какой вы хотели бы средний чек... */,
                                   ),
                                   textAlign: TextAlign.center,
                                   style:
@@ -485,22 +564,22 @@ class _TestWidgetState extends State<TestWidget> with TickerProviderStateMixin {
                                           FormFieldController<String>(null),
                                   options: [
                                     FFLocalizations.of(context).getText(
-                                      'dc8q7e28' /* У меня есть своя еда */,
+                                      's2spzho3' /* У меня есть своя еда */,
                                     ),
                                     FFLocalizations.of(context).getText(
-                                      '0hpwsykn' /* До 1,000 тенге */,
+                                      '77jpk11y' /* До 1,000 тенге */,
                                     ),
                                     FFLocalizations.of(context).getText(
-                                      '2149jx3y' /* 2-5,000 тенге */,
+                                      '6xcnuddc' /* 2-5,000 тенге */,
                                     ),
                                     FFLocalizations.of(context).getText(
-                                      '9rf6hkr5' /* 5-10,000 тенге */,
+                                      'unuswkl0' /* 5-10,000 тенге */,
                                     ),
                                     FFLocalizations.of(context).getText(
-                                      'gu704q4e' /* 10-20,000 тенге */,
+                                      'xssd1auq' /* 10-20,000 тенге */,
                                     ),
                                     FFLocalizations.of(context).getText(
-                                      'izd8yrrz' /* Более 20,000 тенге */,
+                                      's6nm6tqs' /* Более 20,000 тенге */,
                                     )
                                   ],
                                   onChanged: (val) => setState(
@@ -510,7 +589,7 @@ class _TestWidgetState extends State<TestWidget> with TickerProviderStateMixin {
                                   textStyle:
                                       FlutterFlowTheme.of(context).bodyMedium,
                                   hintText: FFLocalizations.of(context).getText(
-                                    '5ciw5jv4' /* Выберите бюджет.. */,
+                                    'a4dveex6' /* Выберите бюджет.. */,
                                   ),
                                   icon: Icon(
                                     Icons.keyboard_arrow_down_rounded,
@@ -537,7 +616,7 @@ class _TestWidgetState extends State<TestWidget> with TickerProviderStateMixin {
                                     16.0, 16.0, 16.0, 0.0),
                                 child: Text(
                                   FFLocalizations.of(context).getText(
-                                    'qe8od9jz' /* Сколько вы готовы тратить на р... */,
+                                    'drh7fzu5' /* Сколько вы готовы тратить на р... */,
                                   ),
                                   textAlign: TextAlign.center,
                                   style:
@@ -554,22 +633,22 @@ class _TestWidgetState extends State<TestWidget> with TickerProviderStateMixin {
                                           FormFieldController<String>(null),
                                   options: [
                                     FFLocalizations.of(context).getText(
-                                      '23h3jb8r' /* 0 тенге */,
+                                      'djmdvz3c' /* 0 тенге */,
                                     ),
                                     FFLocalizations.of(context).getText(
-                                      'izpqtxis' /* До 1,000 тенге */,
+                                      'ck6gbjzt' /* До 1,000 тенге */,
                                     ),
                                     FFLocalizations.of(context).getText(
-                                      'fqdret5b' /* 2-5,000 тенге */,
+                                      'reb4kktf' /* 2-5,000 тенге */,
                                     ),
                                     FFLocalizations.of(context).getText(
-                                      '8nvrzici' /* 5-10,000 тенге */,
+                                      'gs9fdnep' /* 5-10,000 тенге */,
                                     ),
                                     FFLocalizations.of(context).getText(
-                                      '9ysoautp' /* 10-20,000 тенге */,
+                                      'w2pbnnjg' /* 10-20,000 тенге */,
                                     ),
                                     FFLocalizations.of(context).getText(
-                                      '9hqf4dqc' /* Более 20,000 тенге */,
+                                      'jbhi6lvh' /* Более 20,000 тенге */,
                                     )
                                   ],
                                   onChanged: (val) => setState(
@@ -579,7 +658,7 @@ class _TestWidgetState extends State<TestWidget> with TickerProviderStateMixin {
                                   textStyle:
                                       FlutterFlowTheme.of(context).bodyMedium,
                                   hintText: FFLocalizations.of(context).getText(
-                                    'otiog57z' /* Выберите бюджет.. */,
+                                    'ua0pi83f' /* Выберите бюджет.. */,
                                   ),
                                   icon: Icon(
                                     Icons.keyboard_arrow_down_rounded,
@@ -612,7 +691,7 @@ class _TestWidgetState extends State<TestWidget> with TickerProviderStateMixin {
                                     16.0, 16.0, 16.0, 0.0),
                                 child: Text(
                                   FFLocalizations.of(context).getText(
-                                    'droftvse' /* Какой вид активностей вам боль... */,
+                                    '6sl656rs' /* Какой вид активностей вам боль... */,
                                   ),
                                   textAlign: TextAlign.center,
                                   style:
@@ -624,30 +703,24 @@ class _TestWidgetState extends State<TestWidget> with TickerProviderStateMixin {
                                 padding: const EdgeInsetsDirectional.fromSTEB(
                                     16.0, 16.0, 16.0, 0.0),
                                 child: Form(
-                                  key: _model.formKey3,
+                                  key: _model.formKey1,
                                   autovalidateMode: AutovalidateMode.disabled,
                                   child: FlutterFlowCheckboxGroup(
                                     options: [
                                       FFLocalizations.of(context).getText(
-                                        '4wbx6gp2' /* Посещение местных достопримеча... */,
+                                        '6v7ovdcm' /* Выставки */,
                                       ),
                                       FFLocalizations.of(context).getText(
-                                        '3gsy0afz' /* Выставки/музеи */,
+                                        '4tkf3tyg' /* Концерт */,
                                       ),
                                       FFLocalizations.of(context).getText(
-                                        'zvk0jqip' /* Концерты */,
+                                        '6q4559o6' /* Стендапы */,
                                       ),
                                       FFLocalizations.of(context).getText(
-                                        '3be0h75a' /* Горы */,
+                                        'xflu0jig' /* Фестивали */,
                                       ),
                                       FFLocalizations.of(context).getText(
-                                        'heq74g2w' /* Море */,
-                                      ),
-                                      FFLocalizations.of(context).getText(
-                                        '5b6fs40h' /* Санатории */,
-                                      ),
-                                      FFLocalizations.of(context).getText(
-                                        'nrdvwocv' /* Не знаю */,
+                                        'om3lfukv' /* Шоу */,
                                       )
                                     ],
                                     onChanged: (val) => setState(
@@ -655,11 +728,7 @@ class _TestWidgetState extends State<TestWidget> with TickerProviderStateMixin {
                                     controller:
                                         _model.checkboxGroupValueController ??=
                                             FormFieldController<List<String>>(
-                                      [
-                                        FFLocalizations.of(context).getText(
-                                          's68oojx6' /* Не знаю */,
-                                        )
-                                      ],
+                                      [],
                                     ),
                                     activeColor:
                                         FlutterFlowTheme.of(context).primary,
@@ -679,6 +748,178 @@ class _TestWidgetState extends State<TestWidget> with TickerProviderStateMixin {
                               ),
                             ],
                           ),
+                          Column(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    16.0, 16.0, 16.0, 0.0),
+                                child: Text(
+                                  FFLocalizations.of(context).getText(
+                                    '0a2fuibl' /* Когда вы планируете отдыхать? */,
+                                  ),
+                                  textAlign: TextAlign.center,
+                                  style:
+                                      FlutterFlowTheme.of(context).displaySmall,
+                                ).animateOnPageLoad(
+                                    animationsMap['textOnPageLoadAnimation7']!),
+                              ),
+                              Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    24.0, 24.0, 24.0, 24.0),
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    final datePickedDate =
+                                        await showDatePicker(
+                                      context: context,
+                                      initialDate: getCurrentTimestamp,
+                                      firstDate: getCurrentTimestamp,
+                                      lastDate: DateTime(2050),
+                                    );
+
+                                    if (datePickedDate != null) {
+                                      safeSetState(() {
+                                        _model.datePicked = DateTime(
+                                          datePickedDate.year,
+                                          datePickedDate.month,
+                                          datePickedDate.day,
+                                        );
+                                      });
+                                    }
+                                  },
+                                  child: Container(
+                                    width: double.infinity,
+                                    height: 50.0,
+                                    decoration: BoxDecoration(
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
+                                      borderRadius: BorderRadius.circular(8.0),
+                                      border: Border.all(
+                                        color: FlutterFlowTheme.of(context)
+                                            .lineGray,
+                                        width: 1.0,
+                                      ),
+                                    ),
+                                    child: Padding(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                          12.0, 5.0, 12.0, 5.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Text(
+                                            valueOrDefault<String>(
+                                              dateTimeFormat(
+                                                'MMMEd',
+                                                _model.datePicked,
+                                                locale:
+                                                    FFLocalizations.of(context)
+                                                        .languageCode,
+                                              ),
+                                              'Choose Date',
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .titleSmall,
+                                          ),
+                                          Icon(
+                                            Icons.date_range_outlined,
+                                            color: FlutterFlowTheme.of(context)
+                                                .grayIcon,
+                                            size: 24.0,
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Column(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    16.0, 16.0, 16.0, 0.0),
+                                child: Text(
+                                  FFLocalizations.of(context).getText(
+                                    'jx1mkjas' /* Каким будет название для вашег... */,
+                                  ),
+                                  textAlign: TextAlign.center,
+                                  style:
+                                      FlutterFlowTheme.of(context).displaySmall,
+                                ).animateOnPageLoad(
+                                    animationsMap['textOnPageLoadAnimation8']!),
+                              ),
+                              Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    24.0, 24.0, 24.0, 12.0),
+                                child: TextFormField(
+                                  controller: _model.textController,
+                                  focusNode: _model.textFieldFocusNode,
+                                  autofocus: true,
+                                  obscureText: false,
+                                  decoration: InputDecoration(
+                                    labelText:
+                                        FFLocalizations.of(context).getText(
+                                      '1lizenva' /* Название маршрута.. */,
+                                    ),
+                                    labelStyle: FlutterFlowTheme.of(context)
+                                        .labelMedium,
+                                    alignLabelWithHint: false,
+                                    hintStyle: FlutterFlowTheme.of(context)
+                                        .labelMedium,
+                                    enabledBorder: UnderlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: FlutterFlowTheme.of(context)
+                                            .alternate,
+                                        width: 2.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(8.0),
+                                    ),
+                                    focusedBorder: UnderlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: FlutterFlowTheme.of(context)
+                                            .primary,
+                                        width: 2.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(8.0),
+                                    ),
+                                    errorBorder: UnderlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color:
+                                            FlutterFlowTheme.of(context).error,
+                                        width: 2.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(8.0),
+                                    ),
+                                    focusedErrorBorder: UnderlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color:
+                                            FlutterFlowTheme.of(context).error,
+                                        width: 2.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(8.0),
+                                    ),
+                                    contentPadding:
+                                        const EdgeInsetsDirectional.fromSTEB(
+                                            8.0, 0.0, 8.0, 0.0),
+                                  ),
+                                  style:
+                                      FlutterFlowTheme.of(context).bodyMedium,
+                                  validator: _model.textControllerValidator
+                                      .asValidator(context),
+                                ),
+                              ),
+                            ],
+                          ),
                         ],
                       ),
                     ),
@@ -690,7 +931,7 @@ class _TestWidgetState extends State<TestWidget> with TickerProviderStateMixin {
                         child: smooth_page_indicator.SmoothPageIndicator(
                           controller: _model.pageViewController ??=
                               PageController(initialPage: 0),
-                          count: 4,
+                          count: 6,
                           axisDirection: Axis.horizontal,
                           onDotClicked: (i) async {
                             await _model.pageViewController!.animateToPage(
@@ -726,21 +967,68 @@ class _TestWidgetState extends State<TestWidget> with TickerProviderStateMixin {
                         const EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 32.0),
                     child: FFButtonWidget(
                       onPressed: () async {
-                        if (_model.pageViewCurrentIndex == 3) {
-                          if (!((_model.dropDownValue1 != null &&
+                        if (_model.pageViewCurrentIndex == 5) {
+                          if ((_model.dropDownValue1 != null &&
                                   _model.dropDownValue1 != '') &&
                               (_model.dropDownValue2 != null &&
                                   _model.dropDownValue2 != '') &&
-                              (_model.dropDownValue3 != null &&
-                                  _model.dropDownValue3 != '') &&
+                              (_model.dropDownValue3 != null) &&
                               (_model.dropDownValue4 != null &&
                                   _model.dropDownValue4 != '') &&
                               (_model.dropDownValue5 != null &&
-                                  _model.dropDownValue5 != ''))) {
+                                  _model.dropDownValue5 != '') &&
+                              (_model.datePicked != null)) {
+                            _model.events = await queryEventsRecordOnce(
+                              queryBuilder: (eventsRecord) => eventsRecord
+                                  .whereIn('Type', _model.checkboxGroupValues),
+                            );
+                            _model.needsfood =
+                                _model.dropDownValue4 == 'У меня есть своя еда'
+                                    ? false
+                                    : true;
+                            _model.home = await queryPropertiesRecordOnce(
+                              singleRecord: true,
+                            ).then((s) => s.firstOrNull);
+
+                            await RouteRecord.collection.doc().set({
+                              ...createRouteRecordData(
+                                properties: _model.home?.reference,
+                                finished: false,
+                                date: _model.datePicked,
+                                hasOwnHouse: false,
+                                name: _model.textController.text,
+                                price: valueOrDefault<int>(
+                                  _model.home?.price,
+                                  100000,
+                                ),
+                              ),
+                              ...mapToFirestore(
+                                {
+                                  'usersRef': [currentUserReference],
+                                  'events': _model.events
+                                      ?.take(3)
+                                      .toList()
+                                      .map((e) => e.reference)
+                                      .toList(),
+                                },
+                              ),
+                            });
+
+                            context.goNamed(
+                              'myRoutes',
+                              extra: <String, dynamic>{
+                                kTransitionInfoKey: const TransitionInfo(
+                                  hasTransition: true,
+                                  transitionType:
+                                      PageTransitionType.bottomToTop,
+                                ),
+                              },
+                            );
+                          } else {
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
                                 content: Text(
-                                  'Вы не ответили на все вопросы',
+                                  'Вы не ответили на все вопросы..',
                                   style: TextStyle(
                                     color: FlutterFlowTheme.of(context)
                                         .primaryText,
@@ -758,8 +1046,10 @@ class _TestWidgetState extends State<TestWidget> with TickerProviderStateMixin {
                             curve: Curves.ease,
                           );
                         }
+
+                        setState(() {});
                       },
-                      text: _model.pageViewCurrentIndex == 3
+                      text: _model.pageViewCurrentIndex == 5
                           ? 'Сгенерировать маршрут'
                           : 'Следующий вопрос',
                       options: FFButtonOptions(

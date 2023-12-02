@@ -1,4 +1,5 @@
 import '/backend/backend.dart';
+import '/components/bottom_location_widget.dart';
 import '/flutter_flow/flutter_flow_google_map.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -61,7 +62,7 @@ class _InmapWidgetState extends State<InmapWidget> {
           automaticallyImplyLeading: false,
           title: Text(
             FFLocalizations.of(context).getText(
-              'qwgnxx2t' /* Page Title */,
+              'qwgnxx2t' /* Карта достопримечательностей */,
             ),
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Urbanist',
@@ -78,10 +79,8 @@ class _InmapWidgetState extends State<InmapWidget> {
             mainAxisSize: MainAxisSize.max,
             children: [
               Expanded(
-                child: StreamBuilder<List<PropertiesRecord>>(
-                  stream: queryPropertiesRecord(
-                    limit: 7,
-                  ),
+                child: StreamBuilder<List<SightsRecord>>(
+                  stream: querySightsRecord(),
                   builder: (context, snapshot) {
                     // Customize what your widget looks like when it's loading.
                     if (!snapshot.hasData) {
@@ -97,26 +96,50 @@ class _InmapWidgetState extends State<InmapWidget> {
                         ),
                       );
                     }
-                    List<PropertiesRecord> googleMapPropertiesRecordList =
+                    List<SightsRecord> googleMapSightsRecordList =
                         snapshot.data!;
                     return FlutterFlowGoogleMap(
                       controller: _model.googleMapsController,
                       onCameraIdle: (latLng) =>
                           _model.googleMapsCenter = latLng,
                       initialLocation: _model.googleMapsCenter ??=
-                          googleMapPropertiesRecordList.first.propertyLocation!,
-                      markers: googleMapPropertiesRecordList
+                          const LatLng(43.680553, 51.16963),
+                      markers: googleMapSightsRecordList
                           .map(
-                            (googleMapPropertiesRecord) => FlutterFlowMarker(
-                              googleMapPropertiesRecord.reference.path,
-                              googleMapPropertiesRecord.propertyLocation!,
+                            (googleMapSightsRecord) => FlutterFlowMarker(
+                              googleMapSightsRecord.reference.path,
+                              googleMapSightsRecord.location!,
+                              () async {
+                                await showModalBottomSheet(
+                                  isScrollControlled: true,
+                                  backgroundColor: Colors.transparent,
+                                  enableDrag: false,
+                                  context: context,
+                                  builder: (context) {
+                                    return GestureDetector(
+                                      onTap: () => _model
+                                              .unfocusNode.canRequestFocus
+                                          ? FocusScope.of(context)
+                                              .requestFocus(_model.unfocusNode)
+                                          : FocusScope.of(context).unfocus(),
+                                      child: Padding(
+                                        padding:
+                                            MediaQuery.viewInsetsOf(context),
+                                        child: BottomLocationWidget(
+                                          objref: googleMapSightsRecord,
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                ).then((value) => safeSetState(() {}));
+                              },
                             ),
                           )
                           .toList(),
                       markerColor: GoogleMarkerColor.violet,
                       mapType: MapType.normal,
                       style: GoogleMapStyle.standard,
-                      initialZoom: 14.0,
+                      initialZoom: 7.0,
                       allowInteraction: true,
                       allowZoom: true,
                       showZoomControls: false,

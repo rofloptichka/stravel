@@ -208,11 +208,6 @@ class _ChangeMainPhotoWidgetState extends State<ChangeMainPhotoWidget>
 
                       var downloadUrls = <String>[];
                       try {
-                        showUploadMessage(
-                          context,
-                          'Uploading file...',
-                          showLoading: true,
-                        );
                         selectedUploadedFiles = selectedMedia
                             .map((m) => FFUploadedFile(
                                   name: m.storagePath.split('/').last,
@@ -233,7 +228,6 @@ class _ChangeMainPhotoWidgetState extends State<ChangeMainPhotoWidget>
                             .map((u) => u!)
                             .toList();
                       } finally {
-                        ScaffoldMessenger.of(context).hideCurrentSnackBar();
                         _model.isDataUploading = false;
                       }
                       if (selectedUploadedFiles.length ==
@@ -244,10 +238,8 @@ class _ChangeMainPhotoWidgetState extends State<ChangeMainPhotoWidget>
                               selectedUploadedFiles.first;
                           _model.uploadedFileUrl = downloadUrls.first;
                         });
-                        showUploadMessage(context, 'Success!');
                       } else {
                         setState(() {});
-                        showUploadMessage(context, 'Failed to upload data');
                         return;
                       }
                     }
@@ -287,15 +279,7 @@ class _ChangeMainPhotoWidgetState extends State<ChangeMainPhotoWidget>
                         },
                       ),
                     });
-
-                    await widget.propertyRef!.reference.update({
-                      ...mapToFirestore(
-                        {
-                          'image':
-                              FieldValue.arrayUnion([_model.uploadedFileUrl]),
-                        },
-                      ),
-                    });
+                    Navigator.pop(context);
                   },
                   text: FFLocalizations.of(context).getText(
                     '26lq2qv8' /* Сохранить фото */,

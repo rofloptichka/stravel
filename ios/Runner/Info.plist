@@ -59,12 +59,12 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 
+	<key>NSLocationWhenInUseUsageDescription</key>
+    <string>Нам нужна информация о вашем местоположении.</string>
 	<key>NSCameraUsageDescription</key>
     <string>In order to take a picture or video, this app requires permission to access the camera.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
     <string>In order to upload data, this app requires permission to access the photo library.</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-    <string>Чтобы улучшить ваш опыт, нам нужен доступ к вашему местоположению. Это помогает нам предоставлять персонализированные услуги с учетом местоположения.</string>
 	<key>PermissionGroupNotification</key>
     <string>Будьте в курсе важных обновлений и персонализированного контента. Включите уведомления, чтобы улучшить ваш опыт.</string>
 

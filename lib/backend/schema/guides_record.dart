@@ -30,10 +30,22 @@ class GuidesRecord extends FirestoreRecord {
   String get uid => _uid ?? '';
   bool hasUid() => _uid != null;
 
+  // "tours" field.
+  List<DocumentReference>? _tours;
+  List<DocumentReference> get tours => _tours ?? const [];
+  bool hasTours() => _tours != null;
+
+  // "userRef" field.
+  DocumentReference? _userRef;
+  DocumentReference? get userRef => _userRef;
+  bool hasUserRef() => _userRef != null;
+
   void _initializeFields() {
     _displayName = snapshotData['display_name'] as String?;
     _photoUrl = snapshotData['photo_url'] as String?;
     _uid = snapshotData['uid'] as String?;
+    _tours = getDataList(snapshotData['tours']);
+    _userRef = snapshotData['userRef'] as DocumentReference?;
   }
 
   static CollectionReference get collection =>
@@ -73,12 +85,14 @@ Map<String, dynamic> createGuidesRecordData({
   String? displayName,
   String? photoUrl,
   String? uid,
+  DocumentReference? userRef,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
       'display_name': displayName,
       'photo_url': photoUrl,
       'uid': uid,
+      'userRef': userRef,
     }.withoutNulls,
   );
 
@@ -90,14 +104,17 @@ class GuidesRecordDocumentEquality implements Equality<GuidesRecord> {
 
   @override
   bool equals(GuidesRecord? e1, GuidesRecord? e2) {
+    const listEquality = ListEquality();
     return e1?.displayName == e2?.displayName &&
         e1?.photoUrl == e2?.photoUrl &&
-        e1?.uid == e2?.uid;
+        e1?.uid == e2?.uid &&
+        listEquality.equals(e1?.tours, e2?.tours) &&
+        e1?.userRef == e2?.userRef;
   }
 
   @override
-  int hash(GuidesRecord? e) =>
-      const ListEquality().hash([e?.displayName, e?.photoUrl, e?.uid]);
+  int hash(GuidesRecord? e) => const ListEquality()
+      .hash([e?.displayName, e?.photoUrl, e?.uid, e?.tours, e?.userRef]);
 
   @override
   bool isValidKey(Object? o) => o is GuidesRecord;

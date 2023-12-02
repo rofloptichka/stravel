@@ -1,11 +1,15 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'welcome_page_copy_widget.dart' show WelcomePageCopyWidget;
+import 'list06_user_search_widget.dart' show List06UserSearchWidget;
 import 'package:flutter/material.dart';
 
-class WelcomePageCopyModel extends FlutterFlowModel<WelcomePageCopyWidget> {
+class List06UserSearchModel extends FlutterFlowModel<List06UserSearchWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
+  // State field(s) for TextField widget.
+  FocusNode? textFieldFocusNode;
+  TextEditingController? textController;
+  String? Function(BuildContext, String?)? textControllerValidator;
 
   /// Initialization and disposal methods.
 
@@ -15,6 +19,8 @@ class WelcomePageCopyModel extends FlutterFlowModel<WelcomePageCopyWidget> {
   @override
   void dispose() {
     unfocusNode.dispose();
+    textFieldFocusNode?.dispose();
+    textController?.dispose();
   }
 
   /// Action blocks are added here.

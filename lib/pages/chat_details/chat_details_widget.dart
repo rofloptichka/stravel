@@ -108,6 +108,7 @@ class _ChatDetailsWidgetState extends State<ChatDetailsWidget> {
               style: FlutterFlowTheme.of(context).titleMedium.override(
                     fontFamily: 'Urbanist',
                     color: FlutterFlowTheme.of(context).tertiary,
+                    fontSize: 22.0,
                   ),
             ),
           ),

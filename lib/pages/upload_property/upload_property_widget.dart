@@ -128,7 +128,7 @@ class _UploadPropertyWidgetState extends State<UploadPropertyWidget>
 
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       appBar: AppBar(
         backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
         automaticallyImplyLeading: false,
@@ -167,11 +167,11 @@ class _UploadPropertyWidgetState extends State<UploadPropertyWidget>
             Padding(
               padding: const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
               child: FlutterFlowIconButton(
-                borderColor: FlutterFlowTheme.of(context).primaryBackground,
+                borderColor: FlutterFlowTheme.of(context).secondaryBackground,
                 borderRadius: 75.0,
                 borderWidth: 1.0,
                 buttonSize: 150.0,
-                fillColor: FlutterFlowTheme.of(context).secondaryBackground,
+                fillColor: FlutterFlowTheme.of(context).primaryBackground,
                 icon: Icon(
                   Icons.file_upload_outlined,
                   color: FlutterFlowTheme.of(context).primaryText,
@@ -353,7 +353,7 @@ class _UploadPropertyWidgetState extends State<UploadPropertyWidget>
                   color: FlutterFlowTheme.of(context).secondaryText,
                   size: 24.0,
                 ),
-                fillColor: FlutterFlowTheme.of(context).secondaryBackground,
+                fillColor: FlutterFlowTheme.of(context).primaryBackground,
                 elevation: 2.0,
                 borderColor: FlutterFlowTheme.of(context).alternate,
                 borderWidth: 2.0,
@@ -725,6 +725,8 @@ class _UploadPropertyWidgetState extends State<UploadPropertyWidget>
                       },
                     ),
                   });
+
+                  context.pushNamed('myProperties');
                 },
                 text: FFLocalizations.of(context).getText(
                   '15mj8ja1' /* Отправить */,

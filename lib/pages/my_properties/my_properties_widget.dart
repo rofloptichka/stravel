@@ -92,7 +92,7 @@ class _MyPropertiesWidgetState extends State<MyPropertiesWidget> {
         ),
         title: Text(
           FFLocalizations.of(context).getText(
-            'pjub4tp1' /* My Properties */,
+            'pjub4tp1' /* Мои собственности */,
           ),
           style: FlutterFlowTheme.of(context).headlineMedium,
         ),

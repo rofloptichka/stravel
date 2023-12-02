@@ -1,16 +1,20 @@
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'search_properties_widget.dart' show SearchPropertiesWidget;
+import 'sights_widget.dart' show SightsWidget;
 import 'package:flutter/material.dart';
 
-class SearchPropertiesModel extends FlutterFlowModel<SearchPropertiesWidget> {
+class SightsModel extends FlutterFlowModel<SightsWidget> {
+  ///  Local state fields for this page.
+
+  bool isShowFullList = true;
+
   ///  State fields for stateful widgets in this page.
 
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode;
   TextEditingController? textController;
   String? Function(BuildContext, String?)? textControllerValidator;
-  List<PropertiesRecord> simpleSearchResults = [];
+  List<SightsRecord> simpleSearchResults = [];
 
   /// Initialization and disposal methods.
 

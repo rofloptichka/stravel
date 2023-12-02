@@ -40,12 +40,18 @@ class ReviewsRecord extends FirestoreRecord {
   DateTime? get ratingCreated => _ratingCreated;
   bool hasRatingCreated() => _ratingCreated != null;
 
+  // "sightRef" field.
+  DocumentReference? _sightRef;
+  DocumentReference? get sightRef => _sightRef;
+  bool hasSightRef() => _sightRef != null;
+
   void _initializeFields() {
     _propertyRef = snapshotData['propertyRef'] as DocumentReference?;
     _userRef = snapshotData['userRef'] as DocumentReference?;
     _rating = castToType<double>(snapshotData['rating']);
     _ratingDescription = snapshotData['ratingDescription'] as String?;
     _ratingCreated = snapshotData['ratingCreated'] as DateTime?;
+    _sightRef = snapshotData['sightRef'] as DocumentReference?;
   }
 
   static CollectionReference get collection =>
@@ -88,6 +94,7 @@ Map<String, dynamic> createReviewsRecordData({
   double? rating,
   String? ratingDescription,
   DateTime? ratingCreated,
+  DocumentReference? sightRef,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -96,6 +103,7 @@ Map<String, dynamic> createReviewsRecordData({
       'rating': rating,
       'ratingDescription': ratingDescription,
       'ratingCreated': ratingCreated,
+      'sightRef': sightRef,
     }.withoutNulls,
   );
 
@@ -111,7 +119,8 @@ class ReviewsRecordDocumentEquality implements Equality<ReviewsRecord> {
         e1?.userRef == e2?.userRef &&
         e1?.rating == e2?.rating &&
         e1?.ratingDescription == e2?.ratingDescription &&
-        e1?.ratingCreated == e2?.ratingCreated;
+        e1?.ratingCreated == e2?.ratingCreated &&
+        e1?.sightRef == e2?.sightRef;
   }
 
   @override
@@ -120,7 +129,8 @@ class ReviewsRecordDocumentEquality implements Equality<ReviewsRecord> {
         e?.userRef,
         e?.rating,
         e?.ratingDescription,
-        e?.ratingCreated
+        e?.ratingCreated,
+        e?.sightRef
       ]);
 
   @override

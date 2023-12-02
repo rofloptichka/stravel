@@ -102,13 +102,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'searchProperties',
-              path: 'searchProperties',
-              builder: (context, params) => SearchPropertiesWidget(
-                searchTerm: params.getParam('searchTerm', ParamType.String),
-              ),
-            ),
-            FFRoute(
               name: 'chatMain',
               path: 'chatMain',
               builder: (context, params) => params.isEmpty
@@ -136,17 +129,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                     getDoc(['properties'], PropertiesRecord.fromSnapshot),
               },
               builder: (context, params) => PropertyDetailsWidget(
-                propertyRef: params.getParam('propertyRef', ParamType.Document),
-              ),
-            ),
-            FFRoute(
-              name: 'propertyReview',
-              path: 'propertyReview',
-              asyncParams: {
-                'propertyRef':
-                    getDoc(['properties'], PropertiesRecord.fromSnapshot),
-              },
-              builder: (context, params) => PropertyReviewWidget(
                 propertyRef: params.getParam('propertyRef', ParamType.Document),
               ),
             ),
@@ -205,32 +187,17 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => const MyBookingsWidget(),
             ),
             FFRoute(
-              name: 'tripDetailsHOST',
-              path: 'tripDetailsHOST',
-              asyncParams: {
-                'propertyRef':
-                    getDoc(['properties'], PropertiesRecord.fromSnapshot),
-                'tripRef': getDoc(['trips'], TripsRecord.fromSnapshot),
-              },
-              builder: (context, params) => TripDetailsHOSTWidget(
-                propertyRef: params.getParam('propertyRef', ParamType.Document),
-                tripRef: params.getParam('tripRef', ParamType.Document),
+              name: 'Route',
+              path: 'route',
+              builder: (context, params) => RouteWidget(
+                routeRef: params.getParam(
+                    'routeRef', ParamType.DocumentReference, false, ['Route']),
               ),
-            ),
-            FFRoute(
-              name: 'Test',
-              path: 'test',
-              builder: (context, params) => const TestWidget(),
             ),
             FFRoute(
               name: 'SignUp',
               path: 'signUp',
               builder: (context, params) => const SignUpWidget(),
-            ),
-            FFRoute(
-              name: 'WelcomePageCopy',
-              path: 'welcomePage',
-              builder: (context, params) => const WelcomePageCopyWidget(),
             ),
             FFRoute(
               name: 'myTrips',
@@ -246,11 +213,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'reviewPlace',
               path: 'reviewPlace',
               builder: (context, params) => const ReviewPlaceWidget(),
-            ),
-            FFRoute(
-              name: 'mapp',
-              path: 'mapp',
-              builder: (context, params) => const MappWidget(),
             ),
             FFRoute(
               name: 'UploadProperty',
@@ -284,6 +246,43 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => params.isEmpty
                   ? const NavBarPage(initialPage: 'inmap')
                   : const InmapWidget(),
+            ),
+            FFRoute(
+              name: 'Test',
+              path: 'test',
+              builder: (context, params) => const TestWidget(),
+            ),
+            FFRoute(
+              name: 'sightDetails',
+              path: 'sightDetails',
+              asyncParams: {
+                'sightRef': getDoc(['sights'], SightsRecord.fromSnapshot),
+              },
+              builder: (context, params) => SightDetailsWidget(
+                sightRef: params.getParam('sightRef', ParamType.Document),
+              ),
+            ),
+            FFRoute(
+              name: 'sights',
+              path: 'sights',
+              builder: (context, params) => params.isEmpty
+                  ? const NavBarPage(initialPage: 'sights')
+                  : const SightsWidget(),
+            ),
+            FFRoute(
+              name: 'Tours',
+              path: 'tours',
+              builder: (context, params) => const ToursWidget(),
+            ),
+            FFRoute(
+              name: 'List06UserSearch',
+              path: 'list06UserSearch',
+              builder: (context, params) => const List06UserSearchWidget(),
+            ),
+            FFRoute(
+              name: 'myRoutes',
+              path: 'myRoutes',
+              builder: (context, params) => const MyRoutesWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),

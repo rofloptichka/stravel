@@ -78,7 +78,7 @@ class _MyBookingsWidgetState extends State<MyBookingsWidget>
         ),
         title: Text(
           FFLocalizations.of(context).getText(
-            'yss1vakl' /* Бронирование */,
+            'yss1vakl' /* Бронирования моих туров */,
           ),
           style: FlutterFlowTheme.of(context).headlineMedium,
         ),
@@ -236,7 +236,7 @@ class _MyBookingsWidgetState extends State<MyBookingsWidget>
                                                   Colors.transparent,
                                               onTap: () async {
                                                 context.pushNamed(
-                                                  'tripDetailsHOST',
+                                                  'tripDetails',
                                                   queryParameters: {
                                                     'propertyRef':
                                                         serializeParam(
@@ -253,6 +253,13 @@ class _MyBookingsWidgetState extends State<MyBookingsWidget>
                                                         columnPropertiesRecord,
                                                     'tripRef':
                                                         listViewTripsRecord,
+                                                    kTransitionInfoKey:
+                                                        const TransitionInfo(
+                                                      hasTransition: true,
+                                                      transitionType:
+                                                          PageTransitionType
+                                                              .fade,
+                                                    ),
                                                   },
                                                 );
                                               },
@@ -583,7 +590,7 @@ class _MyBookingsWidgetState extends State<MyBookingsWidget>
                                                   Colors.transparent,
                                               onTap: () async {
                                                 context.pushNamed(
-                                                  'tripDetailsHOST',
+                                                  'tripDetails',
                                                   queryParameters: {
                                                     'propertyRef':
                                                         serializeParam(
@@ -600,6 +607,13 @@ class _MyBookingsWidgetState extends State<MyBookingsWidget>
                                                         columnPropertiesRecord,
                                                     'tripRef':
                                                         listViewTripsRecord,
+                                                    kTransitionInfoKey:
+                                                        const TransitionInfo(
+                                                      hasTransition: true,
+                                                      transitionType:
+                                                          PageTransitionType
+                                                              .fade,
+                                                    ),
                                                   },
                                                 );
                                               },

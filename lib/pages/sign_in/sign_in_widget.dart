@@ -122,7 +122,7 @@ class _SignInWidgetState extends State<SignInWidget> {
                             children: [
                               Text(
                                 FFLocalizations.of(context).getText(
-                                  '7c7ulx6d' /* Welcome Back */,
+                                  '7c7ulx6d' /* С возвращением */,
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .headlineLarge
@@ -136,7 +136,7 @@ class _SignInWidgetState extends State<SignInWidget> {
                                     0.0, 12.0, 0.0, 24.0),
                                 child: Text(
                                   FFLocalizations.of(context).getText(
-                                    'sw6l6a91' /* Let's get started by filling o... */,
+                                    'sw6l6a91' /* Заполните поля */,
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .labelMedium
@@ -161,7 +161,7 @@ class _SignInWidgetState extends State<SignInWidget> {
                                     decoration: InputDecoration(
                                       labelText:
                                           FFLocalizations.of(context).getText(
-                                        '5n09km7d' /* Email */,
+                                        '5n09km7d' /* Почта */,
                                       ),
                                       labelStyle: FlutterFlowTheme.of(context)
                                           .labelMedium
@@ -237,7 +237,7 @@ class _SignInWidgetState extends State<SignInWidget> {
                                     decoration: InputDecoration(
                                       labelText:
                                           FFLocalizations.of(context).getText(
-                                        'vopifdik' /* Password */,
+                                        'vopifdik' /* Пароль */,
                                       ),
                                       labelStyle: FlutterFlowTheme.of(context)
                                           .labelMedium
@@ -335,7 +335,7 @@ class _SignInWidgetState extends State<SignInWidget> {
                                         'Properties', context.mounted);
                                   },
                                   text: FFLocalizations.of(context).getText(
-                                    '62vjnv8n' /* Create Account */,
+                                    '62vjnv8n' /* Войти */,
                                   ),
                                   options: FFButtonOptions(
                                     width: 370.0,
@@ -384,7 +384,7 @@ class _SignInWidgetState extends State<SignInWidget> {
                                     alignment: const AlignmentDirectional(0.00, 0.00),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
-                                        '4iajyzn2' /* Forgot Password? */,
+                                        '4iajyzn2' /* Забыли пароль? */,
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium,
@@ -427,14 +427,14 @@ class _SignInWidgetState extends State<SignInWidget> {
                                             TextSpan(
                                               text: FFLocalizations.of(context)
                                                   .getText(
-                                                'awvgs4pl' /* Already have an account?   */,
+                                                'awvgs4pl' /* Нет аккаунта?   */,
                                               ),
                                               style: const TextStyle(),
                                             ),
                                             TextSpan(
                                               text: FFLocalizations.of(context)
                                                   .getText(
-                                                '6ctfkg38' /* Sign up here */,
+                                                '6ctfkg38' /* Создайте его здесь */,
                                               ),
                                               style: FlutterFlowTheme.of(
                                                       context)
@@ -510,7 +510,7 @@ class _SignInWidgetState extends State<SignInWidget> {
                                             child: Text(
                                               FFLocalizations.of(context)
                                                   .getText(
-                                                'kyfcuvxj' /* OR */,
+                                                'kyfcuvxj' /* ИЛИ */,
                                               ),
                                               style:
                                                   FlutterFlowTheme.of(context)
@@ -566,7 +566,7 @@ class _SignInWidgetState extends State<SignInWidget> {
                                         'Properties', context.mounted);
                                   },
                                   text: FFLocalizations.of(context).getText(
-                                    'r5yybpuo' /* Continue with Google */,
+                                    'r5yybpuo' /* Продолжить с Google */,
                                   ),
                                   icon: const FaIcon(
                                     FontAwesomeIcons.google,

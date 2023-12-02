@@ -1,8 +1,9 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'total_widget.dart' show TotalWidget;
+import 'bottom_location_copy_widget.dart' show BottomLocationCopyWidget;
 import 'package:flutter/material.dart';
 
-class TotalModel extends FlutterFlowModel<TotalWidget> {
+class BottomLocationCopyModel
+    extends FlutterFlowModel<BottomLocationCopyWidget> {
   /// Initialization and disposal methods.
 
   @override

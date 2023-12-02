@@ -68,3 +68,26 @@ int newCustomFunction(
 ) {
   return price * numberofpeople;
 }
+
+String? latlngToString(LatLng lt) {
+  // make a string from latlng variable "lt"
+  if (lt == null) {
+    return null;
+  }
+  return '${lt.latitude},${lt.longitude}';
+}
+
+List<LatLng>? listToLatlng(
+  List<double>? lt,
+  List<double>? lg,
+) {
+  // return lt and lg combined
+  if (lt == null || lg == null || lt.length != lg.length) {
+    return null;
+  }
+  final List<LatLng> latLngList = [];
+  for (int i = 0; i < lt.length; i++) {
+    latLngList.add(LatLng(lt[i], lg[i]));
+  }
+  return latLngList;
+}

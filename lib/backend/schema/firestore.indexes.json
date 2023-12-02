@@ -149,6 +149,52 @@
       ]
     },
     {
+      "collectionGroup": "reviews",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "sightRef",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "ratingCreated",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "Route",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "finished",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "usersRef",
+          "arrayConfig": "CONTAINS"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "Route",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "finished",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "usersRef",
+          "arrayConfig": "CONTAINS"
+        },
+        {
+          "fieldPath": "Date",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
       "collectionGroup": "chat_messages",
       "queryScope": "COLLECTION",
       "fields": [

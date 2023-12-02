@@ -279,6 +279,7 @@ class _ChangePhotoWidgetState extends State<ChangePhotoWidget>
                     await currentUserReference!.update(createUsersRecordData(
                       photoUrl: _model.uploadedFileUrl,
                     ));
+                    Navigator.pop(context);
                   },
                   text: FFLocalizations.of(context).getText(
                     'rpf2zc64' /* Сохранить */,

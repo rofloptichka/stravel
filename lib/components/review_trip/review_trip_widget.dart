@@ -1,11 +1,10 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/pages/chatgpt/chatgpt_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:provider/provider.dart';
 import 'review_trip_model.dart';
@@ -25,38 +24,8 @@ class ReviewTripWidget extends StatefulWidget {
   _ReviewTripWidgetState createState() => _ReviewTripWidgetState();
 }
 
-class _ReviewTripWidgetState extends State<ReviewTripWidget>
-    with TickerProviderStateMixin {
+class _ReviewTripWidgetState extends State<ReviewTripWidget> {
   late ReviewTripModel _model;
-
-  final animationsMap = {
-    'buttonOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 350.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 350.ms,
-          duration: 600.ms,
-          begin: const Offset(0.0, 50.0),
-          end: const Offset(0.0, 0.0),
-        ),
-        ScaleEffect(
-          curve: Curves.easeInOut,
-          delay: 350.ms,
-          duration: 600.ms,
-          begin: const Offset(0.6, 0.6),
-          end: const Offset(1.0, 1.0),
-        ),
-      ],
-    ),
-  };
 
   @override
   void setState(VoidCallback callback) {
@@ -71,13 +40,6 @@ class _ReviewTripWidgetState extends State<ReviewTripWidget>
 
     _model.textController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
-
-    setupAnimations(
-      animationsMap.values.where((anim) =>
-          anim.trigger == AnimationTrigger.onActionTrigger ||
-          !anim.applyInitialState),
-      this,
-    );
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -247,106 +209,191 @@ class _ReviewTripWidgetState extends State<ReviewTripWidget>
                         _model.textControllerValidator.asValidator(context),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 0.0),
-                  child: StreamBuilder<List<ReviewsRecord>>(
-                    stream: queryReviewsRecord(
-                      singleRecord: true,
-                    ),
-                    builder: (context, snapshot) {
-                      // Customize what your widget looks like when it's loading.
-                      if (!snapshot.hasData) {
-                        return Center(
-                          child: SizedBox(
-                            width: 50.0,
-                            height: 50.0,
-                            child: CircularProgressIndicator(
-                              valueColor: AlwaysStoppedAnimation<Color>(
-                                FlutterFlowTheme.of(context).primary,
+                Row(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Padding(
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                      child: StreamBuilder<List<ReviewsRecord>>(
+                        stream: queryReviewsRecord(
+                          singleRecord: true,
+                        ),
+                        builder: (context, snapshot) {
+                          // Customize what your widget looks like when it's loading.
+                          if (!snapshot.hasData) {
+                            return Center(
+                              child: SizedBox(
+                                width: 50.0,
+                                height: 50.0,
+                                child: CircularProgressIndicator(
+                                  valueColor: AlwaysStoppedAnimation<Color>(
+                                    FlutterFlowTheme.of(context).primary,
+                                  ),
+                                ),
                               ),
-                            ),
-                          ),
-                        );
-                      }
-                      List<ReviewsRecord> buttonReviewsRecordList =
-                          snapshot.data!;
-                      // Return an empty Container when the item does not exist.
-                      if (snapshot.data!.isEmpty) {
-                        return Container();
-                      }
-                      final buttonReviewsRecord =
-                          buttonReviewsRecordList.isNotEmpty
-                              ? buttonReviewsRecordList.first
-                              : null;
-                      return FFButtonWidget(
-                        onPressed: () async {
-                          await ReviewsRecord.collection
-                              .doc()
-                              .set(createReviewsRecordData(
-                                propertyRef: buttonReviewsRecord?.propertyRef,
-                                userRef: currentUserReference,
-                                rating: _model.ratingBarValue,
-                                ratingDescription: _model.textController.text,
-                                ratingCreated: getCurrentTimestamp,
-                              ));
+                            );
+                          }
+                          List<ReviewsRecord> buttonReviewsRecordList =
+                              snapshot.data!;
+                          // Return an empty Container when the item does not exist.
+                          if (snapshot.data!.isEmpty) {
+                            return Container();
+                          }
+                          final buttonReviewsRecord =
+                              buttonReviewsRecordList.isNotEmpty
+                                  ? buttonReviewsRecordList.first
+                                  : null;
+                          return FFButtonWidget(
+                            onPressed: () async {
+                              await ReviewsRecord.collection
+                                  .doc()
+                                  .set(createReviewsRecordData(
+                                    propertyRef:
+                                        buttonReviewsRecord?.propertyRef,
+                                    userRef: currentUserReference,
+                                    rating: _model.ratingBarValue,
+                                    ratingDescription:
+                                        _model.textController.text,
+                                    ratingCreated: getCurrentTimestamp,
+                                  ));
 
-                          context.pushNamed(
-                            'myProperties',
-                            extra: <String, dynamic>{
-                              kTransitionInfoKey: const TransitionInfo(
-                                hasTransition: true,
-                                transitionType: PageTransitionType.leftToRight,
-                                duration: Duration(milliseconds: 240),
-                              ),
+                              context.pushNamed(
+                                'myProperties',
+                                extra: <String, dynamic>{
+                                  kTransitionInfoKey: const TransitionInfo(
+                                    hasTransition: true,
+                                    transitionType:
+                                        PageTransitionType.leftToRight,
+                                    duration: Duration(milliseconds: 240),
+                                  ),
+                                },
+                              );
+
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text(
+                                    'Your review was submitted succesffuly!',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Urbanist',
+                                          color: FlutterFlowTheme.of(context)
+                                              .tertiary,
+                                        ),
+                                  ),
+                                  duration: const Duration(milliseconds: 4000),
+                                  backgroundColor:
+                                      FlutterFlowTheme.of(context).turquoise,
+                                ),
+                              );
                             },
-                          );
-
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              content: Text(
-                                'Your review was submitted succesffuly!',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Urbanist',
-                                      color:
-                                          FlutterFlowTheme.of(context).tertiary,
-                                    ),
+                            text: FFLocalizations.of(context).getText(
+                              'ee7ooep2' /* Добавить */,
+                            ),
+                            options: FFButtonOptions(
+                              width: 145.0,
+                              height: 60.0,
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              color: FlutterFlowTheme.of(context).primary,
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .headlineSmall
+                                  .override(
+                                    fontFamily: 'Urbanist',
+                                    color:
+                                        FlutterFlowTheme.of(context).tertiary,
+                                  ),
+                              elevation: 3.0,
+                              borderSide: const BorderSide(
+                                color: Colors.transparent,
+                                width: 1.0,
                               ),
-                              duration: const Duration(milliseconds: 4000),
-                              backgroundColor:
-                                  FlutterFlowTheme.of(context).turquoise,
+                              borderRadius: BorderRadius.circular(40.0),
                             ),
                           );
                         },
-                        text: FFLocalizations.of(context).getText(
-                          'ee7ooep2' /* Добавить отзыв */,
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(30.0, 16.0, 0.0, 0.0),
+                      child: StreamBuilder<List<ReviewsRecord>>(
+                        stream: queryReviewsRecord(
+                          singleRecord: true,
                         ),
-                        options: FFButtonOptions(
-                          width: 300.0,
-                          height: 60.0,
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          color: FlutterFlowTheme.of(context).primary,
-                          textStyle: FlutterFlowTheme.of(context)
-                              .headlineSmall
-                              .override(
-                                fontFamily: 'Urbanist',
-                                color: FlutterFlowTheme.of(context).tertiary,
+                        builder: (context, snapshot) {
+                          // Customize what your widget looks like when it's loading.
+                          if (!snapshot.hasData) {
+                            return Center(
+                              child: SizedBox(
+                                width: 50.0,
+                                height: 50.0,
+                                child: CircularProgressIndicator(
+                                  valueColor: AlwaysStoppedAnimation<Color>(
+                                    FlutterFlowTheme.of(context).primary,
+                                  ),
+                                ),
                               ),
-                          elevation: 3.0,
-                          borderSide: const BorderSide(
-                            color: Colors.transparent,
-                            width: 1.0,
-                          ),
-                          borderRadius: BorderRadius.circular(40.0),
-                        ),
-                      ).animateOnPageLoad(
-                          animationsMap['buttonOnPageLoadAnimation']!);
-                    },
-                  ),
+                            );
+                          }
+                          List<ReviewsRecord> buttonReviewsRecordList =
+                              snapshot.data!;
+                          // Return an empty Container when the item does not exist.
+                          if (snapshot.data!.isEmpty) {
+                            return Container();
+                          }
+                          final buttonReviewsRecord =
+                              buttonReviewsRecordList.isNotEmpty
+                                  ? buttonReviewsRecordList.first
+                                  : null;
+                          return FFButtonWidget(
+                            onPressed: () async {
+                              await showModalBottomSheet(
+                                isScrollControlled: true,
+                                backgroundColor: Colors.transparent,
+                                enableDrag: false,
+                                context: context,
+                                builder: (context) {
+                                  return Padding(
+                                    padding: MediaQuery.viewInsetsOf(context),
+                                    child: const ChatgptWidget(),
+                                  );
+                                },
+                              ).then((value) => safeSetState(() {}));
+                            },
+                            text: FFLocalizations.of(context).getText(
+                              'z5kbbwov' /* Сгенерировать */,
+                            ),
+                            options: FFButtonOptions(
+                              width: 165.0,
+                              height: 60.0,
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              color: FlutterFlowTheme.of(context).primary,
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .headlineSmall
+                                  .override(
+                                    fontFamily: 'Urbanist',
+                                    color:
+                                        FlutterFlowTheme.of(context).tertiary,
+                                  ),
+                              elevation: 3.0,
+                              borderSide: const BorderSide(
+                                color: Colors.transparent,
+                                width: 1.0,
+                              ),
+                              borderRadius: BorderRadius.circular(40.0),
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),

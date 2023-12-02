@@ -1,1 +1,2 @@
-
+NSLocationWhenInUseUsageDescription = "To improve your experience, we need access to your location. This helps us provide personalized, location-based services.";
+PermissionGroupNotification = "Stay up to date with important updates and personalized content. Turn on notifications to improve your experience.";

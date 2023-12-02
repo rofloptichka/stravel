@@ -1,6 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/components/total/total_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_count_controller.dart';
 import '/flutter_flow/flutter_flow_credit_card_form.dart';
@@ -484,22 +483,8 @@ class _BookNowWidgetState extends State<BookNowWidget>
                             color: FlutterFlowTheme.of(context).grayIcon,
                             size: 18.0,
                           ),
-                          onPressed: () async {
-                            await showModalBottomSheet(
-                              isScrollControlled: true,
-                              backgroundColor: Colors.transparent,
-                              barrierColor: const Color(0xB3000000),
-                              context: context,
-                              builder: (context) {
-                                return Padding(
-                                  padding: MediaQuery.viewInsetsOf(context),
-                                  child: const SizedBox(
-                                    height: 270.0,
-                                    child: TotalWidget(),
-                                  ),
-                                );
-                              },
-                            ).then((value) => safeSetState(() {}));
+                          onPressed: () {
+                            print('IconButton pressed ...');
                           },
                         ),
                       ],

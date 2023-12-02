@@ -1,8 +1,8 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'trip_details_h_o_s_t_widget.dart' show TripDetailsHOSTWidget;
+import 's_o_s_numbers_widget.dart' show SOSNumbersWidget;
 import 'package:flutter/material.dart';
 
-class TripDetailsHOSTModel extends FlutterFlowModel<TripDetailsHOSTWidget> {
+class SOSNumbersModel extends FlutterFlowModel<SOSNumbersWidget> {
   /// Initialization and disposal methods.
 
   @override

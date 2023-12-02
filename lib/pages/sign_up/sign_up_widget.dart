@@ -128,7 +128,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                             children: [
                               Text(
                                 FFLocalizations.of(context).getText(
-                                  'jix54s8k' /* Create an account */,
+                                  'jix54s8k' /* Создать аккаунт */,
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .headlineLarge
@@ -142,7 +142,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                     0.0, 12.0, 0.0, 24.0),
                                 child: Text(
                                   FFLocalizations.of(context).getText(
-                                    'ha3y0ku2' /* Let's get started by filling o... */,
+                                    'ha3y0ku2' /* Заполните поля */,
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .labelMedium
@@ -167,7 +167,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                     decoration: InputDecoration(
                                       labelText:
                                           FFLocalizations.of(context).getText(
-                                        'd8fb6ad2' /* Email */,
+                                        'd8fb6ad2' /* Почта */,
                                       ),
                                       labelStyle: FlutterFlowTheme.of(context)
                                           .labelMedium
@@ -239,7 +239,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                     decoration: InputDecoration(
                                       labelText:
                                           FFLocalizations.of(context).getText(
-                                        '1iu58zs2' /* Password */,
+                                        '1iu58zs2' /* Пароль */,
                                       ),
                                       labelStyle: FlutterFlowTheme.of(context)
                                           .labelMedium
@@ -328,7 +328,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                     decoration: InputDecoration(
                                       labelText:
                                           FFLocalizations.of(context).getText(
-                                        'fnqciyrd' /* Confirm Password */,
+                                        'fnqciyrd' /* Подтвердить пароль */,
                                       ),
                                       labelStyle: FlutterFlowTheme.of(context)
                                           .labelMedium
@@ -411,10 +411,13 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                       FormFieldController<String>(null),
                                   options: [
                                     FFLocalizations.of(context).getText(
-                                      'w1djerl5' /* Tourist */,
+                                      'w1djerl5' /* Турист */,
                                     ),
                                     FFLocalizations.of(context).getText(
-                                      '6zd63rl2' /* Guide */,
+                                      '6zd63rl2' /* Гид */,
+                                    ),
+                                    FFLocalizations.of(context).getText(
+                                      'xv6e74z4' /* Арендодатель */,
                                     )
                                   ],
                                   onChanged: (val) => setState(
@@ -429,7 +432,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                             .secondaryText,
                                       ),
                                   hintText: FFLocalizations.of(context).getText(
-                                    'd42g24lq' /* Please select... */,
+                                    'd42g24lq' /* Выбрать... */,
                                   ),
                                   icon: Icon(
                                     Icons.keyboard_arrow_down_rounded,
@@ -490,7 +493,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                         'Properties', context.mounted);
                                   },
                                   text: FFLocalizations.of(context).getText(
-                                    'vxi0814z' /* Create Account */,
+                                    'vxi0814z' /* Создать */,
                                   ),
                                   options: FFButtonOptions(
                                     width: 370.0,
@@ -550,14 +553,14 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                             TextSpan(
                                               text: FFLocalizations.of(context)
                                                   .getText(
-                                                's1eebz2w' /* Already have an account?   */,
+                                                's1eebz2w' /* Уже есть аккаунть?  */,
                                               ),
                                               style: const TextStyle(),
                                             ),
                                             TextSpan(
                                               text: FFLocalizations.of(context)
                                                   .getText(
-                                                'dyidwsqy' /* Sign in here */,
+                                                'dyidwsqy' /* Войдите тут */,
                                               ),
                                               style: FlutterFlowTheme.of(
                                                       context)
@@ -633,7 +636,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                             child: Text(
                                               FFLocalizations.of(context)
                                                   .getText(
-                                                '4p4dlj76' /* OR */,
+                                                '4p4dlj76' /* ИЛИ */,
                                               ),
                                               style:
                                                   FlutterFlowTheme.of(context)
@@ -710,7 +713,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                         'Properties', context.mounted);
                                   },
                                   text: FFLocalizations.of(context).getText(
-                                    'jiwzewow' /* Continue with Google */,
+                                    'jiwzewow' /* Продолжить с Google */,
                                   ),
                                   icon: const FaIcon(
                                     FontAwesomeIcons.google,

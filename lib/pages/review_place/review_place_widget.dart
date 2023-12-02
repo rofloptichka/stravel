@@ -55,7 +55,7 @@ class _ReviewPlaceWidgetState extends State<ReviewPlaceWidget> {
 
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).dark600,
+      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       appBar: AppBar(
         backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
         automaticallyImplyLeading: false,
@@ -70,7 +70,7 @@ class _ReviewPlaceWidgetState extends State<ReviewPlaceWidget> {
             size: 30.0,
           ),
           onPressed: () async {
-            context.pop();
+            context.pushNamed('profilePage');
           },
         ),
         title: Text(
@@ -80,7 +80,7 @@ class _ReviewPlaceWidgetState extends State<ReviewPlaceWidget> {
           style: FlutterFlowTheme.of(context).headlineMedium.override(
                 fontFamily: 'Urbanist',
                 color: FlutterFlowTheme.of(context).tertiary,
-                fontWeight: FontWeight.bold,
+                fontWeight: FontWeight.w500,
               ),
         ),
         actions: const [],
@@ -371,7 +371,7 @@ class _ReviewPlaceWidgetState extends State<ReviewPlaceWidget> {
                                                         MediaQuery.viewInsetsOf(
                                                             context),
                                                     child: const SizedBox(
-                                                      height: 640.0,
+                                                      height: 700.0,
                                                       child: ReviewTripWidget(),
                                                     ),
                                                   );
@@ -381,7 +381,7 @@ class _ReviewPlaceWidgetState extends State<ReviewPlaceWidget> {
                                             },
                                             text: FFLocalizations.of(context)
                                                 .getText(
-                                              'emq3imz9' /* Отправить отзыа */,
+                                              'emq3imz9' /* Отправить отзыв */,
                                             ),
                                             options: FFButtonOptions(
                                               padding: const EdgeInsetsDirectional

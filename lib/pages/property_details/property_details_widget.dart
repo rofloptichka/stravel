@@ -306,64 +306,43 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget>
                       Padding(
                         padding: const EdgeInsetsDirectional.fromSTEB(
                             24.0, 8.0, 24.0, 0.0),
-                        child: InkWell(
-                          splashColor: Colors.transparent,
-                          focusColor: Colors.transparent,
-                          hoverColor: Colors.transparent,
-                          highlightColor: Colors.transparent,
-                          onTap: () async {
-                            context.pushNamed(
-                              'propertyReview',
-                              queryParameters: {
-                                'propertyRef': serializeParam(
-                                  widget.propertyRef,
-                                  ParamType.Document,
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 4.0, 0.0, 0.0),
+                              child: RatingBarIndicator(
+                                itemBuilder: (context, index) => const Icon(
+                                  Icons.star_rounded,
+                                  color: Color(0xFFFFA130),
                                 ),
-                              }.withoutNulls,
-                              extra: <String, dynamic>{
-                                'propertyRef': widget.propertyRef,
-                              },
-                            );
-                          },
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 4.0, 0.0, 0.0),
-                                child: RatingBarIndicator(
-                                  itemBuilder: (context, index) => const Icon(
-                                    Icons.star_rounded,
-                                    color: Color(0xFFFFA130),
-                                  ),
-                                  direction: Axis.horizontal,
-                                  rating: functions.ratingSummaryList(
-                                      propertyDetailsReviewsRecordList
-                                          .toList()),
-                                  unratedColor: const Color(0xFF95A1AC),
-                                  itemCount: 5,
-                                  itemSize: 24.0,
-                                ),
+                                direction: Axis.horizontal,
+                                rating: functions.ratingSummaryList(
+                                    propertyDetailsReviewsRecordList.toList()),
+                                unratedColor: const Color(0xFF95A1AC),
+                                itemCount: 5,
+                                itemSize: 24.0,
                               ),
-                              Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    2.0, 0.0, 0.0, 0.0),
-                                child: Text(
-                                  FFLocalizations.of(context).getText(
-                                    'hji2vxku' /* Обзоры */,
-                                  ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodySmall
-                                      .override(
-                                        fontFamily: 'Lexend Deca',
-                                        color: const Color(0xFF8B97A2),
-                                        fontSize: 12.0,
-                                        fontWeight: FontWeight.normal,
-                                      ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  2.0, 0.0, 0.0, 0.0),
+                              child: Text(
+                                FFLocalizations.of(context).getText(
+                                  'hji2vxku' /* Обзоры */,
                                 ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodySmall
+                                    .override(
+                                      fontFamily: 'Lexend Deca',
+                                      color: const Color(0xFF8B97A2),
+                                      fontSize: 12.0,
+                                      fontWeight: FontWeight.normal,
+                                    ),
                               ),
-                            ],
-                          ),
+                            ),
+                          ],
                         ).animateOnPageLoad(
                             animationsMap['rowOnPageLoadAnimation1']!),
                       ),

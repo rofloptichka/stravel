@@ -35,11 +35,17 @@ class SightsRecord extends FirestoreRecord {
   LatLng? get location => _location;
   bool hasLocation() => _location != null;
 
+  // "around" field.
+  List<LatLng>? _around;
+  List<LatLng> get around => _around ?? const [];
+  bool hasAround() => _around != null;
+
   void _initializeFields() {
     _name = snapshotData['Name'] as String?;
     _description = snapshotData['Description'] as String?;
     _photo = getDataList(snapshotData['Photo']);
     _location = snapshotData['Location'] as LatLng?;
+    _around = getDataList(snapshotData['around']);
   }
 
   static CollectionReference get collection =>
@@ -100,12 +106,13 @@ class SightsRecordDocumentEquality implements Equality<SightsRecord> {
     return e1?.name == e2?.name &&
         e1?.description == e2?.description &&
         listEquality.equals(e1?.photo, e2?.photo) &&
-        e1?.location == e2?.location;
+        e1?.location == e2?.location &&
+        listEquality.equals(e1?.around, e2?.around);
   }
 
   @override
   int hash(SightsRecord? e) => const ListEquality()
-      .hash([e?.name, e?.description, e?.photo, e?.location]);
+      .hash([e?.name, e?.description, e?.photo, e?.location, e?.around]);
 
   @override
   bool isValidKey(Object? o) => o is SightsRecord;

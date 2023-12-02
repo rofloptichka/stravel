@@ -10,6 +10,7 @@ import 'backend/firebase/firebase_config.dart';
 import 'flutter_flow/flutter_flow_theme.dart';
 import 'flutter_flow/flutter_flow_util.dart';
 import 'flutter_flow/internationalization.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'index.dart';
 
 void main() async {
@@ -137,9 +138,10 @@ class _NavBarPageState extends State<NavBarPage> {
   Widget build(BuildContext context) {
     final tabs = {
       'Properties': const PropertiesWidget(),
+      'sights': const SightsWidget(),
       'chatMain': const ChatMainWidget(),
-      'profilePage': const ProfilePageWidget(),
       'inmap': const InmapWidget(),
+      'profilePage': const ProfilePageWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
 
@@ -179,6 +181,16 @@ class _NavBarPageState extends State<NavBarPage> {
               tooltip: '',
             ),
             BottomNavigationBarItem(
+              icon: const FaIcon(
+                FontAwesomeIcons.binoculars,
+                size: 22.0,
+              ),
+              label: FFLocalizations.of(context).getText(
+                'n1iqvt55' /* Главная */,
+              ),
+              tooltip: '',
+            ),
+            BottomNavigationBarItem(
               icon: const Icon(
                 Icons.chat_bubble_outline,
                 size: 24.0,
@@ -194,6 +206,16 @@ class _NavBarPageState extends State<NavBarPage> {
             ),
             BottomNavigationBarItem(
               icon: const Icon(
+                Icons.map,
+                size: 24.0,
+              ),
+              label: FFLocalizations.of(context).getText(
+                '7zjuhrue' /* Map */,
+              ),
+              tooltip: '',
+            ),
+            BottomNavigationBarItem(
+              icon: const Icon(
                 Icons.account_circle_outlined,
                 size: 24.0,
               ),
@@ -203,16 +225,6 @@ class _NavBarPageState extends State<NavBarPage> {
               ),
               label: FFLocalizations.of(context).getText(
                 '94vg6oxs' /* Профиль */,
-              ),
-              tooltip: '',
-            ),
-            BottomNavigationBarItem(
-              icon: const Icon(
-                Icons.home_outlined,
-                size: 24.0,
-              ),
-              label: FFLocalizations.of(context).getText(
-                '7zjuhrue' /* Home */,
               ),
               tooltip: '',
             )
